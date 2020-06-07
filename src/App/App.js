@@ -6,6 +6,10 @@ import './App.scss';
 
 import Auth from '../components/pages/Auth/Auth';
 import MyNavbar from '../components/shared/MyNavbar/MyNavbar';
+import New from '../components/pages/New/New';
+import Home from '../components/pages/Home/Home';
+import MyStuff from '../components/pages/MyStuff/MyStuff';
+
 
 import fbConnection from '../helpers/data/connection';
 
@@ -34,8 +38,11 @@ class App extends React.Component {
     return (
       <div className="App">
         <MyNavbar />
-        <h1>Scat Surprise</h1>
+        <h1>React Hoarder</h1>
         <Auth />
+        <New />
+        <Home />
+        <MyStuff />
       </div>
     );
   }

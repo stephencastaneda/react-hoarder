@@ -23,25 +23,18 @@ class MyStuff extends React.Component {
     this.getItems();
   }
 
-  // editEvent = (e) => {
-  //   e.preventDefault();
-  //   const itemId = 'monkeybutt62';
-  //   this.props.history.push(`/edit/${itemId}`);
-  // }
+  removeItem = (itemId) => {
+    itemsData.deleteItem(itemId)
+      .then(() => this.getItems())
+      .catch((err) => console.error('unable to delete items: ', err));
+  }
 
   render() {
     const { items } = this.state;
     const buildItemCards = items.map((item) => (
-      <ItemCard key={item.id} item={item} />
+      <ItemCard key={item.id} item={item} removeItem={this.removeItem} />
     ));
-    // return (
-    //   <div className="MyStuff">
-    //   <button className="btn btn-dark" onClick={this.editEvent}>Edit a thing</button>
-    //   <Link to='/single/9w8797429384792'>View Single</Link>
-    //   <Link to='/new'>New Stuff</Link>
-    //     <h1>My Stuff</h1>
-    //   </div>
-    // );
+
     return (
       <div className="MyStuff">
         <h1>My Stuff</h1>

@@ -16,6 +16,13 @@ class SingleItem extends React.Component {
       .catch((err) => console.error('unable to get single item: ', err));
   }
 
+  removeItem = () => {
+    const { itemId } = this.props.match.params;
+    itemsData.deleteItem(itemId)
+      .then(() => this.props.history.push('/stuff'))
+      .catch((err) => console.error('unable to delete item: ', err));
+  }
+
   render() {
     const { item } = this.state;
     return (
@@ -26,6 +33,7 @@ class SingleItem extends React.Component {
             <img src={item.itemImage} className="card-img-top p-4 border" alt={item.itemName} />
             <p className="card-text m-3">{item.itemDescription}</p>
           </div>
+          <button className="btn btn-danger" onClick={this.removeItem}><i className="fas fa-trash-alt"></i></button>
         </div>
       </div>
     );

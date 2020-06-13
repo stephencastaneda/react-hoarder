@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import itemsData from '../../../helpers/data/itemsData';
 
@@ -25,6 +26,8 @@ class SingleItem extends React.Component {
 
   render() {
     const { item } = this.state;
+    const { itemId } = this.props.match.params;
+    const editLink = `/edit/${itemId}`;
     return (
       <div className="SingleItem col-10">
         <div className="d-flex flex-wrap justify-content-center">
@@ -33,6 +36,7 @@ class SingleItem extends React.Component {
             <img src={item.itemImage} className="card-img-top p-4 border" alt={item.itemName} />
             <p className="card-text m-3">{item.itemDescription}</p>
           </div>
+          <Link className="btn btn-warning" to={editLink}><i className="fas fa-pencil-alt"></i></Link>
           <button className="btn btn-danger" onClick={this.removeItem}><i className="fas fa-trash-alt"></i></button>
         </div>
       </div>

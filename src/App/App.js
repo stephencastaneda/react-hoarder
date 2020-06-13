@@ -17,6 +17,7 @@ import New from '../components/pages/New/New';
 import Home from '../components/pages/Home/Home';
 import MyStuff from '../components/pages/MyStuff/MyStuff';
 import SingleItem from '../components/pages/SingleItem/SingleItem';
+import EditStuff from '../components/pages/EditStuff/EditStuff';
 
 
 import fbConnection from '../helpers/data/connection';
@@ -71,7 +72,7 @@ class App extends React.Component {
                     <PrivateRoute path='/new' component={New} authed={authed} />
                     <PrivateRoute path='/stuff/:itemId' component={SingleItem} authed={authed} />
                     <PrivateRoute path='/stuff' component={MyStuff} authed={authed} />
-                    {/* <PrivateRoute path='/edit/:itemId' component={EditItem} authed={authed} /> */}
+                    <PrivateRoute path='/edit/:itemId' component={EditStuff} authed={authed} />
                     <PublicRoute path='/auth' component={Auth} authed={authed} />
                     <Redirect from="*" to="/home"/>
                   </Switch>

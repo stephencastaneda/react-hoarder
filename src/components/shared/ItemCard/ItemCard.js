@@ -16,6 +16,7 @@ class ItemCard extends React.Component {
   render() {
     const { item, removeItem } = this.props;
     const singleLink = `/stuff/${item.id}`;
+    const editLink = `/edit/${item.id}`;
 
     return (
       <div className="ItemCard col-3">
@@ -24,6 +25,7 @@ class ItemCard extends React.Component {
             <div className="card-body">
               <h5 className="card-title">{item.itemName}</h5>
                 <p className="card-text">{item.itemDescription}</p>
+                <Link className="btn btn-warning" to={editLink}><i className="fas fa-pencil-alt"></i></Link>
                 <Link className="btn btn-info" to={singleLink}><i className="fas fa-binoculars"></i></Link>
                 <button className="btn btn-danger" onClick={() => removeItem(item.id)}><i className="fas fa-trash-alt"></i></button>
               </div>
